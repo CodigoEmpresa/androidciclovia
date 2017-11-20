@@ -20,7 +20,7 @@ class UsuarioController extends Controller
         return response()->json(['usuarios' => $usuario]);
     }
 
-    public function crear(Request $request) {
+    public function insertar(Request $request) {
         $estado = 0;
         if(empty($request->id_usuario))
             $usuario = new Usuario;

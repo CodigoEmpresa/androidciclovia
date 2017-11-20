@@ -34,6 +34,7 @@ $app->post('/bicicorredores/puntos', 'ServicesController@puntosCorredor');
 $app->post('/bicicorredores/puntos/detalle', 'ServicesController@detallePuntoCorredor');
 $app->post('/visita/insertar', 'ServicesController@visita');
 $app->post('/problema/insertar', 'ServicesController@problema');
+$app->post('/usuario/insertar', 'UsuarioController@insertar');
 
 $app->get('/api/corredores/obtener', 'CorredorController@obtener');
 
