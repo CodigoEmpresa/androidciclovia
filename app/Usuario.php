@@ -1,7 +1,18 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: daniel
- * Date: 20/11/17
- * Time: 04:15 PM
+ * User: JONATHAN.CASTRO
+ * Date: 20/11/2017
+ * Time: 8:34 AM
  */
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Usuario extends Model
+{
+    protected $table = 'usuario';
+    protected $primaryKey = 'id_usuario';
+
+}
