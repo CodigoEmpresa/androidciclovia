@@ -1,0 +1,36 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: JONATHAN.CASTRO
+ * Date: 20/11/2017
+ * Time: 8:39 AM
+ */
+
+namespace App\Http\Controllers;
+
+
+use App\Usuario;
+use Illuminate\Http\Request;
+
+class UsuarioController extends Controller
+{
+    public function obtener() {
+        $usuario = Usuario::get();
+
+        return response()->json(['usuarios' => $usuario]);
+    }
+
+    public function crear(Request $request) {
+        $estado = 0;
+        if(empty($request->id_usuario))
+            $usuario = new Usuario;
+        else
+            $usuario = Usuario::find($request->id_usuario);
+
+        $usuario->email = $request->email;
+        $usuario->password = $request->password;
+        $usuario->save();
+
+        return response()->json(['estado' => 1]);
+    }
+}
