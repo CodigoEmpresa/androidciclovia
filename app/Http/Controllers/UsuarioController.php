@@ -26,8 +26,8 @@ class UsuarioController extends Controller
         else
             $usuario = Usuario::find($request->id_usuario);
 
-        $usuario->email = $request->email;
-        $usuario->password = $request->password;
+        $usuario->email = $request->input("email");
+        $usuario->password = sha1($request->input("email").$request->input("password"));
         $usuario->save();
 
         return response()->json(['estado' => 1]);
