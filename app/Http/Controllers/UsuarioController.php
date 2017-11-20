@@ -16,7 +16,6 @@ class UsuarioController extends Controller
 {
     public function obtener() {
         $usuario = Usuario::get();
-
         return response()->json(['usuarios' => $usuario]);
     }
 
