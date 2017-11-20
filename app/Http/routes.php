@@ -35,6 +35,8 @@ $app->post('/bicicorredores/puntos/detalle', 'ServicesController@detallePuntoCor
 $app->post('/visita/insertar', 'ServicesController@visita');
 $app->post('/problema/insertar', 'ServicesController@problema');
 
+$app->get('/api/corredores/obtener', 'CorredorController@obtener');
+
 //assets
 $app->get('/mapaciclovia', function()
 {
