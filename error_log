@@ -4,3 +4,4 @@
 [12-Aug-2016 18:00:46 UTC] PHP Fatal error:  Call to undefined function public_path() in /home1/idrdgov/public_html/SIM/androidciclovia/app/Http/routes.php on line 39
 [12-Aug-2016 18:03:48 UTC] PHP Parse error:  syntax error, unexpected ')' in /home1/idrdgov/public_html/SIM/androidciclovia/app/Http/routes.php on line 39
 [12-Aug-2016 18:04:15 UTC] PHP Fatal error:  Call to undefined function public_path() in /home1/idrdgov/public_html/SIM/androidciclovia/app/Http/routes.php on line 39
+[20-Nov-2017 20:50:31 UTC] PHP Fatal error:  Call to a member function parameter() on a non-object in /home1/idrdgov/public_html/SIM/androidciclovia/vendor/illuminate/http/Request.php on line 901
