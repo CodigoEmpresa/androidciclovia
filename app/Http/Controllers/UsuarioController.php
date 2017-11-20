@@ -21,7 +21,7 @@ class UsuarioController extends Controller
 
     public function insertar(Request $request) {
         $estado = 0;
-        if(empty($request->id_usuario))
+        if(empty($request->input("id_usuario")))
             $usuario = new Usuario;
         else
             $usuario = Usuario::find($request->id_usuario);
