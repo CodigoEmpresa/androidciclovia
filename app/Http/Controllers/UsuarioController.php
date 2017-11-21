@@ -19,17 +19,28 @@ class UsuarioController extends Controller
         return response()->json(['usuarios' => $usuario]);
     }
 
-    public function insertar(Request $request) {
+    public function insertar(Request $request)
+    {
         $estado = 0;
-        if(empty($request->input("id_usuario")))
+        $mensaje = '';
+        $usuario = Usuario::where('email',$request->input("email"));
+        if(empty($usuario)){
             $usuario = new Usuario;
-        else
-            $usuario = Usuario::find($request->id_usuario);
+            $usuario->email = $request->input("email");
+            $usuario->password = sha1($request->input("email").$request->input("password"));
+            $usuario->save();
+            $estado = 1;
+            $mensaje = 'Se ha registrado correctamente';
+        }else{
+            if($usuario->password ==  sha1($request->input("email").$request->input("password"))){
+                $estado = 2;
+                $mensaje = 'Se ha logeado correctamente';
+            }else{
+                $estado = 3;
+                $mensaje = 'Contraseña invalida';
+            }
+        }
 
-        $usuario->email = $request->input("email");
-        $usuario->password = sha1($request->input("email").$request->input("password"));
-        $usuario->save();
-
-        return response()->json(['estado' => 1]);
+        return response()->json(['estado' => $estado, 'mensaje'=>$mensaje]);
     }
 }
