@@ -23,7 +23,7 @@ class UsuarioController extends Controller
     {
         $estado = 0;
         $mensaje = '';
-        $usuario = Usuario::where('email',$request->input("email"));
+        $usuario = Usuario::where('email',$request->input("email"))->first();
         if(empty($usuario)){
             $usuario = new Usuario;
             $usuario->email = $request->input("email");
@@ -32,7 +32,7 @@ class UsuarioController extends Controller
             $estado = 1;
             $mensaje = 'Se ha registrado correctamente';
         }else{
-            if($usuario->password ==  sha1($request->input("email").$request->input("password"))){
+            if($usuario->password ==  sha1($usuario->email.$usuario->password)){
                 $estado = 2;
                 $mensaje = 'Se ha logeado correctamente';
             }else{
