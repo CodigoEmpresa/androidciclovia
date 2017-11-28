@@ -32,7 +32,7 @@ class UsuarioController extends Controller
             $estado = 1;
             $mensaje = 'Se ha registrado correctamente';
         }else{
-            if(sha1($request->input("email").$request->input("password")) ==  sha1($usuario->email.$usuario->password)){
+            if(sha1($request->input("email").$request->input("password")) ==  $usuario->password){
                 $estado = 2;
                 $mensaje = 'Se ha logeado correctamente';
             }else{
