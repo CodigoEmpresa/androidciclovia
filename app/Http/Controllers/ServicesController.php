@@ -101,8 +101,8 @@ class ServicesController extends BaseController {
 
 	public function insertarMensaje(Request $request)
 	{
-		$mensaje = $_POST["_Mensaje"];
-		$id_persona = $_POST["_idPersona"];
+		$mensaje = $request->input("_Mensaje");
+		$id_persona = $request->input("_idPersona");
 		DB::statement('CALL __SP_Mensaje(?, ?, ?, ?)', ['3', '', $mensaje, $id_persona]);
 
 		return response()->json([1]);
